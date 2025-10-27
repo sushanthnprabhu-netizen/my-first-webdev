@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Web Page created by Sushanth</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: background-image 1s ease-in-out;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+    }
+
+    h1, h2, p {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>For My Awesome Friend!!!</h1>
+  <h2>A little page made just for you</h2>
+  <p>This is the first web page created by Sushanth !!!</p>
+  <button onclick="alert('Thank you for your love!')">Click if you like it</button>
+  <!-- Hidden message -->
+<div id="hiddenMessage" style="display: none; font-size: 20px; color: #171717; margin-top: 15px;">
+  You’re not just my friend — you’re my chosen family. Thank you for always being there, even when I don’t say it enough. You make my world brighter every single day. 🌈💫
+</div>
+
+<!-- Toggle button -->
+<button onclick="toggleMessage()" >
+  Click for a Surprise!!!
+</button>
+
+<script>
+  function toggleMessage() {
+    const message = document.getElementById("hiddenMessage");
+    if (message.style.display === "none" || message.style.display === "") {
+      message.style.display = "block";
+    } else {
+      message.style.display = "none";
+    }
+  }
+</script>
+<!-- Ask to Play Music -->
+<button onclick="askForMusic()">
+   Want to play  music?
+</button>
+
+<!-- Hidden Music Button -->
+<button id="playMusicBtn" onclick="toggleMusic()" style="display: none; padding: 10px 20px; font-size: 16px; background-color: #2196F3; color: white; border: none; border-radius: 8px; cursor: pointer; margin-left: 10px;">
+  ▶️ Yes, Play Music
+</button>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+  <source src="websong.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  function askForMusic() {
+    document.getElementById("playMusicBtn").style.display = "inline-block";
+  }
+
+  function toggleMusic() {
+    const music = document.getElementById("bgMusic");
+    const button = document.getElementById("playMusicBtn");
+
+    if (music.paused) {
+      music.play();
+      button.textContent = "⏸️ Pause Music";
+    } else {
+      music.pause();
+      button.textContent = "▶️ Yes, Play Music";
+    }
+  }
+</script>
+
+
+
+
+  <script>
+    // Array of background images (put all images in "images" folder)
+    const images = [
+      'images/sushambhu.jpg',
+      'images/s1.jpg',
+      'images/s3.jpg',
+      'images/s2.jpg',
+      'images/s5.jpg',
+      'images/s6.jpg',
+      'images/s7.jpg',
+
+      
+    ];
+
+    // Preload images for smoother transitions
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    let index = 0;
+
+    function changeBackground() {
+      document.body.style.backgroundImage = `url('${images[index]}')`;
+      index = (index + 1) % images.length; // loop back to start
+    }
+
+    // Initial background
+    changeBackground();
+
+    // Change every 5 seconds
+    setInterval(changeBackground, 3000);
+  </script>
+</body>
+</html>
