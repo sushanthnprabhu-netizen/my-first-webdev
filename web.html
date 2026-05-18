@@ -109,7 +109,7 @@
 
 
   <script>
-    // Array of background images (put all images in "images" folder)
+   
     const images = [
       'images/sushambhu.jpg',
       'images/s1.jpg',
@@ -122,7 +122,7 @@
       
     ];
 
-    // Preload images for smoother transitions
+    
     images.forEach(src => {
       const img = new Image();
       img.src = src;
@@ -135,10 +135,10 @@
       index = (index + 1) % images.length; // loop back to start
     }
 
-    // Initial background
+   
     changeBackground();
 
-    // Change every 5 seconds
+    
     setInterval(changeBackground, 3000);
   </script>
 </body>
